@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', function(){
     'use strict';
-    console.log("henlo");
     
     var tab = document.querySelectorAll('.info-header-tab'),
         tabContent=document.querySelectorAll('.info-tabcontent'),
@@ -36,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
     });
         //timer
-        var deadline = '2020-09-02';
+        var deadline = '2020-09-10';
 
         function getTimeRemaining(endTime){
             var t= Date.parse(endTime)-Date.parse(new Date()),
@@ -77,4 +76,19 @@ window.addEventListener('DOMContentLoaded', function(){
             }
         }
         setCLock('timer', deadline);
+        
+        var more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close'),
+        popup = document.querySelector('.popup');
+        more.addEventListener('click', function(){
+            overlay.style.display = 'block';
+            this.classList.add('fade');
+            popup.classList.add('more-splash');
+        });
+        close.addEventListener('click',function(){
+            overlay.style.display = 'none';
+            this.classList.remove('fade');
+            popup.classList.remove('more-splash');
+        });
 });
